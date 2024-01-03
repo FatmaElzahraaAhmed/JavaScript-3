@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+    <style>
+      pre {
+        background-color: #f4f4f4;
+        width: 60%;
+        border-radius: 5px;
+        font-family: "Courier New", monospace;
+        white-space: pre-wrap;
+        color: purple;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Part 1:</h3>
+    <button onclick="loginUser()">Login</button>
+    <br />
+    <br />
+    <button onclick="calculate()">Calculate 2 Numbers</button>
+    <br />
+    <br />
+    <button onclick="calculateMore()">
+      Calculate more than 2 Numbers (BONUS)
+    </button>
+    <br />
+    <br />
+
+    <br />
+
+    <h3>Part 2:</h3>
+    <button onclick="calculateSumAndAverage()">Calculate Sum & Average</button>
+    <br />
+    <br />
+    <button onclick="phoneBookApp()">Phone Book App</button>
+    <br />
+    <br />
+    <button onclick="areaCalculator()">Area Calculator (BONUS)</button>
+    <br />
+    <br />
+
+    <br />
+
+    <h3>Part 3:</h3>
+    <h5>EX1:Object Methods Explanation</h5>
+
+    <ol>
+      <li>
+        <strong>Object.keys(obj):</strong> Returns an array of a given object's
+        own enumerable property names (keys).
+      </li>
+      <pre>
+            <code>
+                const sampleObject = { name: 'John', age: 25, city: 'New York' };
+                const keysArray = Object.keys(sampleObject);
+                // Result: ['name', 'age', 'city']
+            </code>
+        </pre>
+
+      <li>
+        <strong>Object.values(obj):</strong> Returns an array of a given
+        object's own enumerable property values.
+      </li>
+      <pre>
+        <code>
+            const sampleObject = { name: 'John', age: 25, city: 'New York' };
+            const valuesArray = Object.values(sampleObject);
+            // Result: ['John', 25, 'New York']
+        </code>
+        </pre>
+
+      <li>
+        <strong>Object.entries(obj):</strong> Returns an array of a given
+        object's own enumerable property [key, value] pairs.
+      </li>
+      <pre>
+        <code>
+            const sampleObject = { name: 'John', age: 25, city: 'New York' };
+            const entriesArray = Object.entries(sampleObject);
+            // Result: [['name', 'John'], ['age', 25], ['city', 'New York']]
+        </code>
+        </pre>
+
+      <li>
+        <strong>Object.assign(target, source1, source2, ...):</strong> Copies
+        the values of enumerable properties from source objects to a target
+        object.
+      </li>
+      <pre>
+        <code>
+            const targetObject = { a: 1, b: 2 };
+            const sourceObject = { b: 3, c: 4 };
+            Object.assign(targetObject, sourceObject);
+            // Result: { a: 1, b: 3, c: 4 }
+        </code>
+        </pre>
+
+      <li>
+        <strong>Object.hasOwnProperty(prop):</strong> Checks if an object has a
+        specific property as its own property.
+      </li>
+      <pre>
+        <code>
+            const sampleObject = { name: 'John', age: 25 };
+            const hasNameProperty = sampleObject.hasOwnProperty('name');
+            // Result: true
+        </code>
+        </pre>
+
+      <li>
+        <strong>Object.freeze(obj):</strong> Freezes an object, preventing new
+        properties from being added or existing properties from being changed.
+      </li>
+      <pre>
+        <code>
+            const frozenObject = Object.freeze({ key: 'value' });
+            // Trying to modify the object will throw an error in strict mode.
+        </code>
+        </pre>
+
+      <li>
+        <strong>Object.seal(obj):</strong> Seals an object, preventing new
+        properties from being added and marking existing properties as
+        non-configurable.
+      </li>
+      <pre>
+        <code>
+            const sealedObject = Object.seal({ key: 'value' });
+            // Trying to add new properties or configure existing ones will not work.
+        </code>
+        </pre>
+
+      <li>
+        <strong>Object.entries(obj):</strong> Returns an array of a given
+        object's own enumerable property [key, value] pairs.
+      </li>
+      <pre>
+        <code>
+            const sampleObject = { name: 'John', age: 25, city: 'New York' };
+            const entriesArray = Object.entries(sampleObject);
+            // Result: [['name', 'John'], ['age', 25], ['city', 'New York']]
+        </code>
+        </pre>
+
+      <li>
+        <strong>Object.create(proto, propertiesObject):</strong> Creates a new
+        object with the specified prototype and properties.
+      </li>
+      <pre>
+        <code>
+            const protoObject = { greeting: 'Hello' };
+            const newObj = Object.create(protoObject, { name: { value: 'John' } });
+            // Result: { name: 'John' }
+        </code>
+        </pre>
+
+      <li>
+        <strong>Object.values(obj):</strong> Returns an array of a given
+        object's own enumerable property values.
+      </li>
+      <pre>
+        <code>
+            const sampleObject = { name: 'John', age: 25, city: 'New York' };
+            const valuesArray = Object.values(sampleObject);
+            // Result: ['John', 25, 'New York']
+        </code>
+        </pre>
+    </ol>
+
+    <br /><br />
+
+    <h5>EX2:Array Methods Explanation</h5>
+    <ol>
+      <li>
+        <strong>Array.push(element1, ..., elementN):</strong> Adds one or more
+        elements to the end of an array and returns the new length of the array.
+      </li>
+      <pre>
+            <code>
+                const numbers = [1, 2, 3];
+                const newLength = numbers.push(4, 5);
+                // Result: numbers is now [1, 2, 3, 4, 5], newLength is 5
+            </code>
+        </pre>
+
+      <li>
+        <strong>Array.pop():</strong> Removes the last element from an array and
+        returns that element.
+      </li>
+      <pre>
+            <code>
+                const numbers = [1, 2, 3, 4, 5];
+                const removedElement = numbers.pop();
+                // Result: numbers is now [1, 2, 3, 4], removedElement is 5
+            </code>
+        </pre>
+
+      <li>
+        <strong>Array.shift():</strong> Removes the first element from an array
+        and returns that element.
+      </li>
+      <pre>
+            <code>
+                const fruits = ['apple', 'orange', 'banana'];
+                const removedElement = fruits.shift();
+                // Result: fruits is now ['orange', 'banana'], removedElement is 'apple'
+            </code>
+        </pre>
+
+      <li>
+        <strong>Array.unshift(element1, ..., elementN):</strong> Adds one or
+        more elements to the beginning of an array and returns the new length of
+        the array.
+      </li>
+      <pre>
+            <code>
+                const fruits = ['orange', 'banana'];
+                const newLength = fruits.unshift('apple', 'grape');
+                // Result: fruits is now ['apple', 'grape', 'orange', 'banana'], newLength is 4
+            </code>
+        </pre>
+
+      <li>
+        <strong>Array.indexOf(searchElement, fromIndex):</strong> Returns the
+        first index at which a given element can be found in the array, or -1 if
+        it is not present.
+      </li>
+      <pre>
+            <code>
+                const colors = ['red', 'blue', 'green', 'blue'];
+                const index = colors.indexOf('blue');
+                // Result: index is 1 (the first occurrence of 'blue' in the array)
+            </code>
+        </pre>
+
+      <li>
+        <strong>Array.includes(searchElement, fromIndex):</strong> Determines
+        whether an array includes a certain element and returns a boolean value.
+      </li>
+      <pre>
+            <code>
+                const numbers = [1, 2, 3, 4, 5];
+                const includesThree = numbers.includes(3);
+                // Result: includesThree is true
+            </code>
+        </pre>
+
+      <li>
+        <strong>Array.slice(start, end):</strong> Extracts a section of an array
+        and returns a new array without modifying the original array.
+      </li>
+      <pre>
+            <code>
+                const fruits = ['apple', 'orange', 'banana', 'grape'];
+                const slicedFruits = fruits.slice(1, 3);
+                // Result: slicedFruits is ['orange', 'banana'], fruits remains unchanged
+            </code>
+        </pre>
+
+      <li>
+        <strong>Array.splice(start, deleteCount, item1, ..., itemN):</strong>
+        Changes the contents of an array by removing or replacing existing
+        elements and/or adding new elements.
+      </li>
+      <pre>
+            <code>
+                const colors = ['red', 'green', 'blue'];
+                colors.splice(1, 1, 'yellow', 'orange');
+                // Result: colors is now ['red', 'yellow', 'orange', 'blue']
+            </code>
+        </pre>
+
+      <li>
+        <strong>Array.filter(callback(element, index, array)):</strong>
+        Creates a new array with all elements that pass the test implemented by
+        the provided function.
+      </li>
+      <pre>
+            <code>
+                const numbers = [1, 2, 3, 4, 5];
+                const evenNumbers = numbers.filter(num => num % 2 === 0);
+                // Result: evenNumbers is [2, 4]
+            </code>
+        </pre>
+
+      <li>
+        <strong>Array.map(callback(element, index, array)):</strong> Creates a
+        new array with the results of calling a provided function on every
+        element in the array.
+      </li>
+      <pre>
+            <code>
+                const numbers = [1, 2, 3, 4, 5];
+                const squaredNumbers = numbers.map(num => num * num);
+                // Result: squaredNumbers is [1, 4, 9, 16, 25]
+            </code>
+        </pre>
+    </ol>
+
+    <br /><br />
+
+    <h5>EX3:Closure and Nested Function Example</h5>
+
+    <p>
+      In JavaScript, a closure is formed when a function is defined within
+      another function, allowing the inner function to access the outer
+      function's variables and parameters even after the outer function has
+      completed execution.
+    </p>
+
+    <h6>Example:</h6>
+    <pre>
+
+        <code>
+            function outerFunction(outerParam) {
+                function innerFunction(innerParam) {
+                    console.log("Outer parameter:", outerParam);
+                    console.log("Inner parameter:", innerParam);
+                }
+                
+                return innerFunction;
+            }
+            
+            const closure = outerFunction("Hello");
+            
+            closure("World");
+        </code>
+    </pre>
+
+    <p>
+      In this example, the <code>outerFunction</code> contains an
+      <code>innerFunction</code> that accesses both the
+      <code>outerParam</code> and <code>innerParam</code>. When
+      <code>outerFunction</code> is called with the parameter 'Hello', it
+      returns the <code>innerFunction</code>, creating a closure. The closure is
+      then called with the inner parameter 'World', and it prints both the
+      <code>outerParam</code> and <code>innerParam</code> values.
+    </p>
+
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
